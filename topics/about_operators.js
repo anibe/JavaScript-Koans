@@ -43,5 +43,5 @@ test("modulus", function() {
   var x = 5;
   //again this is exactly the same as result = result % x
   result %= x;
-  equal(__, result, "What is the value of result?");
+  equal(0, result, "What is the value of result?");
 });
