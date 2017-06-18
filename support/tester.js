@@ -1,21 +1,4 @@
-
 var __ = "incomplete";
-
-var fakeQuery = function (selector) {
-    function jquery(selector) {
-		this.selector = selector;
-    }
-
-    jquery.prototype.html = function () {
-        return '';
-    };
-
-    return jquery;
-};
-
-console.log(fakeQuery())
-
-var $ = $ || fakeQuery;
 
 // ignore this. It simplifies determining array equality
 Array.prototype.equalTo = function(compareTo) {
@@ -58,36 +41,36 @@ Array.prototype.equalTo = function(compareTo) {
 
 	QUnit.config.reorder = false;
 
-	QUnit.done(function(results) {
-		var failures = results.failed;
-		var total = results.total;
-		if (failures > 0) {
-			var failed = $('ol#qunit-tests > li.fail');
-			failed.hide();
-			$(failed[0]).show();
-		}
-		if (failures < total) {
-			$('h3.welcome_message').hide();
-		}
-		if (failures > 0) {
-			$("#zen-help").show();
-		}
-		$("body").scrollTop($(document).height());
-	});
+	// QUnit.done(function(results) {
+	// 	var failures = results.failed;
+	// 	var total = results.total;
+	// 	if (failures > 0) {
+	// 		var failed = $('ol#qunit-tests > li.fail');
+	// 		failed.hide();
+	// 		$(failed[0]).show();
+	// 	}
+	// 	if (failures < total) {
+	// 		$('h3.welcome_message').hide();
+	// 	}
+	// 	if (failures > 0) {
+	// 		$("#zen-help").show();
+	// 	}
+	// 	$("body").scrollTop($(document).height());
+	// });
 
 	QUnit.log(function(result) {
 		lastAssertLogReason = result.message;
 	});
 
-	QUnit.testDone(function(result) {
-		var message;
-		if (!ignoreFurtherFailures && result.failed > 0) {
-			ignoreFurtherFailures = true;
-			message = "" + randomZenMessage() + "\nTry meditating on this: " + result.module + ": " + result.name + " (" + lastAssertLogReason + ")";
-			$("#zen-help").html(message.replace(/\n/g, "<br /><br />"));
-			console.log(message);
-		}
-	});
+	// QUnit.testDone(function(result) {
+	// 	var message;
+	// 	if (!ignoreFurtherFailures && result.failed > 0) {
+	// 		ignoreFurtherFailures = true;
+	// 		message = "" + randomZenMessage() + "\nTry meditating on this: " + result.module + ": " + result.name + " (" + lastAssertLogReason + ")";
+	// 		$("#zen-help").html(message.replace(/\n/g, "<br /><br />"));
+	// 		console.log(message);
+	// 	}
+	// });
 
 	function randomZenMessage() {
 		var randomIndex = Math.floor(Math.random() * zenMessages.length);
