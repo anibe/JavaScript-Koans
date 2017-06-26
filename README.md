@@ -5,7 +5,9 @@ JavaScript Koans is an interactive learning environment that uses failing tests 
 
 The inspiration for this project comes from the Edgecase Ruby Koans and the book 'Javascript: The Good Parts'.
 
-Open the file jskoans.htm in your favourite browser and make the tests pass.
+Open the file jskoans.htm in your favourite browser and make the tests pass. This updated version also supports [Wallaby.js](https://wallabyjs.com/) which means you can run your tests right from your IDE; no browser required!
+
+![JS Koans with Wallaby](js-koans-with-wallaby.gif)
 
 The koans use the [Qunit](http://qunitjs.com/) test syntax and test runner. 
 
